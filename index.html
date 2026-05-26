@@ -238,14 +238,17 @@
     }
 
     .choice-card {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       border: 1px solid var(--line);
       border-left-width: 5px;
       border-radius: var(--radius);
-      padding: 14px 16px;
+      padding: 22px 16px;
       background: #fff;
       color: var(--ink);
-      min-height: 72px;
+      min-height: 96px;
       transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
     }
 
@@ -263,7 +266,7 @@
 
     .choice-card h3 {
       margin: 0;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.25;
     }
 
@@ -463,9 +466,7 @@
           <p>This website is organized around four professional directions: academic research, psychological counseling, educational consulting, and applied behavioral/UX research. Across these areas, I use psychological science and quantitative methods to understand social behavior and translate research into practical insight.</p>
         </div>
 
-        <section class="section" aria-label="Choose a section">
-          <h2>Start here</h2>
-          <p>Choose the section most relevant to you.</p>
+        <section class="section" aria-label="Main sections">
           <div class="choice-grid">
             <a class="choice-card academic" href="#academic">
               <h3>Academic Research</h3>
