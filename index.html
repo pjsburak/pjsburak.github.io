@@ -233,8 +233,8 @@
     .choice-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin: 22px 0 8px;
+      gap: 12px;
+      margin: 18px 0 8px;
     }
 
     .choice-card {
@@ -242,9 +242,10 @@
       border: 1px solid var(--line);
       border-left-width: 5px;
       border-radius: var(--radius);
-      padding: 18px;
+      padding: 14px 16px;
       background: #fff;
       color: var(--ink);
+      min-height: 72px;
       transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
     }
 
@@ -261,21 +262,14 @@
     .choice-card.ux { border-left-color: var(--ux); }
 
     .choice-card h3 {
-      margin: 0 0 8px;
-      font-size: 17px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
     }
 
-    .choice-card p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
-      margin: 0 0 12px;
-    }
-
+    .choice-card p,
     .choice-card span {
-      font-size: 13px;
-      font-weight: 650;
-      color: var(--link);
+      display: none;
     }
 
     .info-list {
@@ -475,23 +469,15 @@
           <div class="choice-grid">
             <a class="choice-card academic" href="#academic">
               <h3>Academic Research</h3>
-              <p>Research interests, methods, publications, working papers, and scholarly projects.</p>
-              <span>View research →</span>
             </a>
             <a class="choice-card support" href="#support">
               <h3>Psychological Counseling</h3>
-              <p>Psychology-informed counseling, psychoeducation, and session information.</p>
-              <span>Learn more →</span>
             </a>
             <a class="choice-card education" href="#education">
               <h3>Educational Services</h3>
-              <p>Guidance for international students applying to degree programs abroad, including program search and application preparation.</p>
-              <span>Explore services →</span>
             </a>
             <a class="choice-card ux" href="#ux">
               <h3>UX & Behavioral Research</h3>
-              <p>A developing applied direction connecting psychology, research methods, and user-centered insight.</p>
-              <span>Explore direction →</span>
             </a>
           </div>
         </section>
@@ -532,15 +518,6 @@
             <span class="tag">Field Research</span>
             <span class="tag">Scientific Writing</span>
           </div>
-
-          <h3>Methods & Skills</h3>
-          <ul class="info-list">
-            <li>R, SPSS, quantitative analysis, and research dataset management</li>
-            <li>Experimental and field research design</li>
-            <li>Survey design, questionnaire development, measurement, and data interpretation</li>
-            <li>Literature reviews, manuscript drafting, scholarly writing, teaching, and presentations</li>
-            <li>Workshop design and facilitation on DEI, prejudice, stereotyping, and discrimination</li>
-          </ul>
 
           <h3>Publications, Writing & Presentations</h3>
           <ul class="pub-list">
@@ -597,16 +574,6 @@
             <span class="tag">Cultural Transitions</span>
           </div>
 
-          <h3>Relevant Training</h3>
-          <ul class="info-list">
-            <li>Bachelor’s degree in Guidance and Psychological Counseling, TED University</li>
-            <li>Master’s degree in Psychology of Wellbeing and Social Inclusivity, University of Bologna</li>
-            <li>Supervised counseling experience with adolescents</li>
-            <li>Cognitive Behavior Therapy Practitioner certification, Achology</li>
-            <li>Psychological First Aid, Johns Hopkins University</li>
-            <li>Resilience in Children Exposed to Trauma, Disaster and War, University of Minnesota</li>
-          </ul>
-
           <div class="note">Please note: These sessions are educational and supportive in nature and are offered within the scope of my training and applicable regulations. They are not a substitute for emergency care, psychiatric treatment, formal diagnosis, or licensed psychotherapy. If you are in crisis or need urgent mental health support, please contact local emergency services or a licensed mental health professional in your area.</div>
         </section>
 
@@ -623,27 +590,12 @@
             <li><strong>Academic pathway planning:</strong> discussing undergraduate, master’s, and Ph.D. routes, including transitions between education systems.</li>
             <li><strong>Cross-cultural preparation:</strong> helping students understand expectations, adaptation challenges, and academic life abroad.</li>
           </ul>
-
-          <h3>Relevant Experience</h3>
-          <ul class="info-list">
-            <li>International Promotion Officer, TED University, Ankara</li>
-            <li>Experience supporting international student recruitment and access to higher education opportunities</li>
-            <li>Academic experience across Türkiye, Italy, Germany, and the United States</li>
-          </ul>
         </section>
 
         <section class="section" id="ux">
           <h2>UX & Behavioral Research</h2>
           <p>I am developing an applied research direction in UX and behavioral research, building on my doctoral training in social psychology, survey design, quantitative analysis, field research, and human behavior.</p>
           <p>My interest is in using psychological research skills to understand people’s needs, behaviors, decisions, and experiences in real-world products, services, institutions, and organizations.</p>
-
-          <h3>Transferable Strengths</h3>
-          <ul class="info-list">
-            <li><strong>Survey research:</strong> questionnaire design, measurement, sampling, and interpretation of response patterns.</li>
-            <li><strong>Behavioral insight:</strong> social psychological theory applied to attitudes, group dynamics, decision-making, motivation, and experience.</li>
-            <li><strong>Quantitative analysis:</strong> managing datasets, analyzing behavioral data, and interpreting findings for academic and applied audiences.</li>
-            <li><strong>Research translation:</strong> turning findings into clear reports, recommendations, workshops, and practical next steps.</li>
-          </ul>
 
           <h3>Areas I Am Building Toward</h3>
           <div class="tags">
@@ -668,7 +620,6 @@
               <a href="https://orcid.org/0000-0002-4375-465X" title="ORCID" aria-label="ORCID">ORCID</a> ·
               <a href="https://www.researchgate.net/profile/Burak-Cayir" title="ResearchGate" aria-label="ResearchGate">ResearchGate</a>
             </p>
-            <p><strong>Booking:</strong> Add your Calendly or booking link</p>
           </div>
         </section>
       </article>
