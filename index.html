@@ -283,6 +283,45 @@
 
     .info-list li { margin: 6px 0; }
 
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin: 14px 0 20px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--academic);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .timeline-content strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.35;
+      margin-bottom: 3px;
+    }
+
+    .timeline-content span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -482,17 +521,47 @@
 
         <section class="section" id="about">
           <h2>About Me</h2>
-          <p>I am a social psychology researcher with training in psychological research, quantitative methods, counseling, and applied behavioral science. I am currently pursuing a Ph.D. in Psychology at the University of Bologna, .</p>
-          <p>My academic and applied work centers on intergroup relations, prejudice, stereotyping, discrimination, tolerance, dehumanization, solidarity, and social change. I am especially interested in using psychological science to understand real-world social problems and support more inclusive communities, services, and institutions.</p>
+          <p>I am a Ph.D. student in Psychology at the University of Bologna, specializing in social and political psychology. My research examines how intergroup relations, prejudice, discrimination, and collective action shape social change.</p>
+          <p>Across my academic and applied work, I use psychological theory and quantitative methods to study how people understand group differences, respond to inequality, and engage with social issues. I am especially interested in connecting rigorous research with practical insight for education, counseling, and applied behavioral contexts.</p>
 
           <h3>Education & Academic Appointments</h3>
-          <ul class="info-list">
-            <li>Ph.D., Social Psychology, University of Bologna, Italy — ongoing</li>
-            <li>Visiting Scholar, New York University, United States — Feb 2026 to ongoing</li>
-            <li>Visiting Scholar, University of Osnabrück, Germany — Sep 2025 to Feb 2026</li>
-            <li>Master’s degree, Psychology of Wellbeing and Social Inclusivity, University of Bologna — Sep 2021 to July 2023</li>
-            <li>Bachelor’s degree, Guidance and Psychological Counseling, TED University, Ankara — Sep 2016 to June 2020</li>
-          </ul>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Ongoing</div>
+              <div class="timeline-content">
+                <strong>Ph.D., Social Psychology</strong>
+                <span>University of Bologna · Italy</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Feb 2026 – ongoing</div>
+              <div class="timeline-content">
+                <strong>Visiting Scholar</strong>
+                <span>New York University · United States</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Sep 2025 – Feb 2026</div>
+              <div class="timeline-content">
+                <strong>Visiting Scholar</strong>
+                <span>University of Osnabrück · Germany</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2021 – 2023</div>
+              <div class="timeline-content">
+                <strong>Master’s Degree, Psychology of Wellbeing and Social Inclusivity</strong>
+                <span>University of Bologna · Italy</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2016 – 2020</div>
+              <div class="timeline-content">
+                <strong>Bachelor’s Degree, Guidance and Psychological Counseling</strong>
+                <span>TED University · Ankara, Türkiye</span>
+              </div>
+            </div>
+          </div>
 
           <h3>Languages</h3>
           <ul class="info-list">
@@ -509,14 +578,10 @@
           <h3>Research Interests</h3>
           <div class="tags">
             <span class="tag">Social Psychology</span>
+            <span class="tag">Political Psychology</span>
             <span class="tag">Intergroup Relations</span>
             <span class="tag">Prejudice & Discrimination</span>
-            <span class="tag">Tolerance</span>
-            <span class="tag">Dehumanization</span>
-            <span class="tag">Social Change</span>
-            <span class="tag">Quantitative Methods</span>
-            <span class="tag">Field Research</span>
-            <span class="tag">Scientific Writing</span>
+            <span class="tag">Collective Actions & Social Change</span>
           </div>
 
           <h3>Publications, Writing & Presentations</h3>
@@ -555,10 +620,10 @@
 
         <section class="section" id="support">
           <h2>Psychological Counseling</h2>
-          <p>I have a background in guidance and psychological counseling, wellbeing and social inclusivity, and supervised counseling experience with adolescents. I offer psychology-informed support and counseling-oriented sessions for individuals seeking greater self-understanding, emotional clarity, and practical strategies for personal, academic, or professional challenges.</p>
-          <p>My approach is informed by my bachelor’s training in Guidance and Psychological Counseling, my master’s training in Psychology of Wellbeing and Social Inclusivity, and my ongoing doctoral work in psychology.</p>
-          <p>Sessions may focus on stress, adjustment, academic and career challenges, decision-making, emotional awareness, personal development, resilience, and psychoeducation. I am also especially interested in supporting immigrants, expats, and international students navigating life abroad, cultural adjustment, belonging, loneliness, identity, uncertainty, and transitions between countries or education systems.</p>
-          <p>I am available for online sessions. To inquire about a session, please reach out via email. <em>(I aim to respond to booking inquiries within 8 hours.)</em></p>
+          <p>I offer online, psychology-informed counseling-oriented sessions for individuals seeking clarity, support, and practical strategies for navigating personal, academic, and professional challenges.</p>
+          <p>My work is especially relevant for people dealing with stress, adjustment, uncertainty, life transitions, academic pressure, career-related concerns, and questions of identity or belonging.</p>
+          <p>I also work with immigrants, expats, and international students navigating life abroad, cultural transition, loneliness, adaptation, and the emotional complexity of moving between countries, communities, and education systems.</p>
+          <p>To inquire about an online session, please reach out via email. <em>(I aim to respond to booking inquiries within 8 hours.)</em></p>
 
           <h3>Possible Session Themes</h3>
           <div class="tags">
