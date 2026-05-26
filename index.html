@@ -288,13 +288,13 @@
       display: grid;
       gap: 0;
       margin: 14px 0 22px;
-      padding-left: 18px;
+      padding-left: 30px;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      left: 5px;
+      left: 12px;
       top: 6px;
       bottom: 8px;
       width: 2px;
@@ -305,7 +305,7 @@
     .timeline-item {
       position: relative;
       display: grid;
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 1fr 150px;
       gap: 18px;
       padding: 9px 0 13px;
       background: transparent;
@@ -314,7 +314,7 @@
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -18px;
+      left: -24px;
       top: 15px;
       width: 12px;
       height: 12px;
@@ -325,12 +325,20 @@
     }
 
     .timeline-date {
+      grid-column: 2;
+      grid-row: 1;
       color: var(--muted);
       font-size: 12px;
       font-weight: 750;
       line-height: 1.35;
       padding-top: 1px;
       letter-spacing: 0.01em;
+      text-align: right;
+    }
+
+    .timeline-content {
+      grid-column: 1;
+      grid-row: 1;
     }
 
     .timeline-content strong {
@@ -502,6 +510,18 @@
       .choice-grid {
         grid-template-columns: 1fr;
       }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .timeline-date,
+      .timeline-content {
+        grid-column: 1;
+        grid-row: auto;
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -538,7 +558,7 @@
           <img src="profile.jpg" alt="Burak Cayir">
         </div>
         <h1>Burak Cayir</h1>
-        <p class="title">Ph.D. Student in Psychology<br />Research · Counseling · Educational Consulting · Applied Behavioral Science</p>
+        <p class="title">Ph.D. Student in Psychology<br />Psychological Counseling · Educational Consulting · Applied Behavioral Science</p>
 
         <div class="about-links">
           <a class="about-link" href="https://www.linkedin.com/in/burak-cayir">
@@ -593,7 +613,7 @@
             <div class="timeline-item">
               <div class="timeline-date">Nov 2023 – ongoing</div>
               <div class="timeline-content">
-                <strong>Ph.D.,  Psychology</strong>
+                <strong>Ph.D., Social Psychology</strong>
                 <span>University of Bologna · Italy</span>
               </div>
             </div>
