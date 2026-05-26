@@ -487,33 +487,145 @@
     @media (max-width: 860px) {
       .nav-inner {
         min-height: auto;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding: 10px 14px 12px;
         align-items: flex-start;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
       }
 
-      .nav-links a { padding: 8px 8px 8px 0; }
-      .social-mini { margin-left: 0; }
-      main { padding-top: 34px; }
+      .brand {
+        font-size: 18px;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 2px 0 6px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        flex: 0 0 auto;
+        padding: 7px 0;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .social-mini {
+        flex: 0 0 auto;
+        margin-left: 2px;
+      }
+
+      .social-mini a {
+        width: 28px;
+        height: 28px;
+      }
+
+      main {
+        padding: 30px 16px 56px;
+      }
 
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 34px;
+        gap: 30px;
       }
 
       .profile {
         position: static;
       }
 
+      .headshot {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 18px;
+      }
+
+      .profile h1 {
+        font-size: 28px;
+      }
+
+      .profile .title {
+        font-size: 14px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-links {
+        width: min(100%, 340px);
+        margin: 0 auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .about-link {
+        min-width: 0;
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+
+      .section {
+        padding-top: 24px;
+        margin-top: 22px;
+      }
+
+      .section h2 {
+        font-size: 23px;
+      }
+
+      .section h3 {
+        font-size: 17px;
+        margin-top: 20px;
+      }
+
+      .content {
+        font-size: 15.5px;
+      }
+
+      .content p {
+        line-height: 1.68;
+      }
+
       .choice-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .choice-card {
+        min-height: 78px;
+        padding: 14px 10px;
+      }
+
+      .choice-card h3 {
+        font-size: 15px;
+      }
+
+      .timeline {
+        padding-left: 24px;
+      }
+
+      .timeline::before {
+        left: 9px;
       }
 
       .timeline-item {
         grid-template-columns: 1fr;
-        gap: 2px;
+        gap: 3px;
+        padding: 9px 0 12px;
+      }
+
+      .timeline-item::before {
+        left: -21px;
+        top: 14px;
       }
 
       .timeline-date,
@@ -521,6 +633,76 @@
         grid-column: 1;
         grid-row: auto;
         text-align: left;
+      }
+
+      .timeline-date {
+        order: 2;
+        font-size: 12px;
+      }
+
+      .timeline-content strong {
+        font-size: 15px;
+      }
+
+      .language-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .language-card {
+        padding: 11px 12px;
+      }
+
+      .tags {
+        gap: 7px;
+      }
+
+      .tag {
+        font-size: 12.5px;
+        padding: 5px 8px;
+      }
+
+      .pub-list li {
+        padding: 13px 0;
+      }
+
+      .pub-title {
+        line-height: 1.45;
+      }
+
+      .pub-meta {
+        font-size: 13.5px;
+        overflow-wrap: anywhere;
+      }
+
+      .info-list {
+        padding-left: 18px;
+      }
+
+      .note,
+      .contact-box {
+        padding: 12px;
+      }
+
+      footer {
+        padding: 22px 16px 34px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .choice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-links {
+        grid-template-columns: 1fr;
+      }
+
+      .headshot {
+        width: 164px;
+        height: 164px;
       }
     }
   </style>
