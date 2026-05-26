@@ -1,37 +1,682 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Burak C</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burak Cayir</title>
   <style>
+    :root {
+      --navy: #222831;
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #596579;
+      --line: #e6e8ee;
+      --soft: #f7f8fb;
+      --link: #2f6f91;
+      --academic: #2f6f91;
+      --support: #9a6a28;
+      --education: #7b5fc9;
+      --ux: #3659a8;
+      --radius: 12px;
+      --max: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 20px;
-      line-height: 1.6;
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
     }
 
-    h1 {
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--navy);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 58px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .brand:hover { text-decoration: none; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      padding: 18px 10px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .social-mini {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 8px;
+    }
+
+    .social-mini a {
+      width: 30px;
+      height: 30px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+      font-weight: 700;
+      font-size: 12px;
+      padding: 0;
+    }
+
+    .social-mini a:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 54px 22px 80px;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 52px;
+      align-items: start;
+    }
+
+    .profile {
+      text-align: center;
+      position: sticky;
+      top: 92px;
+    }
+
+    .headshot {
+      width: 230px;
+      height: 230px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #313947, #2f6f91);
+      display: grid;
+      place-items: center;
+      color: #fff;
       font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      box-shadow: 0 12px 36px rgba(31, 41, 51, 0.18);
+      overflow: hidden;
     }
 
-    .box {
-      background: #f4f4f4;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
+    .headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile h1 {
+      margin: 0 0 6px;
+      font-size: 30px;
+      line-height: 1.12;
+      font-weight: 650;
+      letter-spacing: -0.035em;
+    }
+
+    .profile .title {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .about-links {
+      display: grid;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      color: #334155;
+      background: var(--paper);
+      font-size: 14px;
+      min-width: 138px;
+      justify-content: center;
+    }
+
+    .about-link:hover {
+      text-decoration: none;
+      border-color: #bcc6d4;
+      background: var(--soft);
+    }
+
+    .content {
+      min-width: 0;
+      font-size: 16px;
+    }
+
+    .content p {
+      margin: 0 0 18px;
+      color: #2f3a48;
+    }
+
+    .content strong { color: var(--ink); }
+
+    .intro-box {
+      font-size: 17px;
+      margin-bottom: 26px;
+    }
+
+    .section {
+      padding-top: 28px;
+      margin-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 650;
+      letter-spacing: -0.025em;
+    }
+
+    .section h3 {
+      margin: 22px 0 8px;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: -0.015em;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 22px 0 8px;
+    }
+
+    .choice-card {
+      display: block;
+      border: 1px solid var(--line);
+      border-left-width: 5px;
+      border-radius: var(--radius);
+      padding: 18px;
+      background: #fff;
+      color: var(--ink);
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(31, 41, 51, 0.08);
+      text-decoration: none;
+      border-color: #cdd5df;
+    }
+
+    .choice-card.academic { border-left-color: var(--academic); }
+    .choice-card.support { border-left-color: var(--support); }
+    .choice-card.education { border-left-color: var(--education); }
+    .choice-card.ux { border-left-color: var(--ux); }
+
+    .choice-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .choice-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 12px;
+    }
+
+    .choice-card span {
+      font-size: 13px;
+      font-weight: 650;
+      color: var(--link);
+    }
+
+    .info-list {
+      padding-left: 22px;
+      margin: 8px 0 18px;
+      color: #374151;
+    }
+
+    .info-list li { margin: 6px 0; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: var(--soft);
+      color: #475467;
+      font-size: 13px;
+    }
+
+    .pub-list {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pub-list li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .pub-list li:first-child { border-top: 0; padding-top: 0; }
+
+    .pub-type {
+      display: block;
+      color: var(--academic);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .pub-title {
+      display: block;
+      color: var(--ink);
+      font-weight: 650;
+      margin-bottom: 4px;
+    }
+
+    .pub-meta {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .note {
+      border-left: 4px solid var(--support);
+      background: #fff8eb;
+      padding: 12px 14px;
+      border-radius: 8px;
+      color: #6b4e17;
+      font-size: 14px;
+      line-height: 1.55;
+      margin: 16px 0 0;
+    }
+
+    .contact-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: var(--soft);
+      margin-top: 12px;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 22px 42px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 1020px) {
+      .choice-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-inner {
+        min-height: auto;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links a { padding: 8px 8px 8px 0; }
+      .social-mini { margin-left: 0; }
+      main { padding-top: 34px; }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .profile {
+        position: static;
+      }
+
+      .choice-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to my website</h1>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Burak Cayir</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#academic">Academic Research</a>
+        <a href="#support">Psychological Counseling</a>
+        <a href="#education">Educational Services</a>
+        <a href="#ux">UX & Behavioral Research</a>
+        <a href="#contact">Contact</a>
+        <span class="social-mini" aria-label="Profile links">
+          <a href="https://www.linkedin.com/in/burak-cayir/" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.54V9H7.1v11.45ZM22.23 0H1.76C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.76 24h20.47c.97 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z"/></svg>
+          </a>
+          <a href="https://orcid.org/0000-0002-4375-465X" title="ORCID" aria-label="ORCID">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0ZM7.37 18.09H5.74V8.03h1.63v10.06ZM6.56 6.71a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08Zm4.02 11.38H8.95V5.76h4.4c3.73 0 5.37 2.67 5.37 6.16 0 3.68-1.95 6.17-5.35 6.17h-2.79Zm2.66-1.47c2.57 0 3.78-1.83 3.78-4.7 0-2.86-1.19-4.69-3.78-4.69h-2.66v9.39h2.66Z"/></svg>
+          </a>
+          <a href="mailto:buraak.cayir@gmail.com" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 4.25-7.07 4.42a1 1 0 0 1-1.06 0L4.4 8.25A1 1 0 1 1 5.46 6.55L12 10.64l6.54-4.09a1 1 0 1 1 1.06 1.7Z"/></svg>
+          </a>
+        </span>
+      </nav>
+    </div>
+  </header>
 
-  <p>Hello, my name is Burak. This is my first website hosted for free with GitHub Pages.</p>
+  <main id="top">
+    <div class="about-layout">
+      <aside class="profile">
+        <div class="headshot">BC</div>
+        <h1>Burak Cayir</h1>
+        <p class="title">Ph.D. Student in Psychology<br />Research · Counseling · Educational Consulting · Applied Behavioral Science</p>
 
-  <div class="box">
-    <h2>Coming soon</h2>
-    <p>I will update this website soon with more information.</p>
-  </div>
+        <div class="about-links">
+          <a class="about-link" href="https://www.linkedin.com/in/burak-cayir/">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.54V9H7.1v11.45ZM22.23 0H1.76C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.76 24h20.47c.97 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="about-link" href="#">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18V16c0 2.21 3.13 4 7 4s7-1.79 7-4v-2.82L12 17Z"/></svg>
+            <span>Google Scholar</span>
+          </a>
+          <a class="about-link" href="https://orcid.org/0000-0002-4375-465X">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0ZM7.37 18.09H5.74V8.03h1.63v10.06ZM6.56 6.71a1.04 1.04 0 1 1 0-2.08 1.04 1.04 0 0 1 0 2.08Zm4.02 11.38H8.95V5.76h4.4c3.73 0 5.37 2.67 5.37 6.16 0 3.68-1.95 6.17-5.35 6.17h-2.79Zm2.66-1.47c2.57 0 3.78-1.83 3.78-4.7 0-2.86-1.19-4.69-3.78-4.69h-2.66v9.39h2.66Z"/></svg>
+            <span>ORCID</span>
+          </a>
+          <a class="about-link" href="https://www.researchgate.net/profile/Burak-Cayir">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M4 4h7.1c2.74 0 4.45 1.43 4.45 3.78 0 1.66-.83 2.84-2.27 3.39.97.34 1.51 1.1 1.84 2.43l1.55 6.4h-3.2l-1.35-5.75c-.3-1.22-.84-1.66-2.08-1.66H7.1V20H4V4Zm3.1 2.62v3.55h3.47c1.18 0 1.84-.64 1.84-1.78 0-1.12-.66-1.77-1.84-1.77H7.1ZM17.1 13.2c0-2.17 1.44-3.67 3.45-3.67 2.07 0 3.45 1.42 3.45 3.7v.78h-4.5c.1.98.66 1.48 1.6 1.48.68 0 1.13-.24 1.5-.76l1.2 1.36c-.62.88-1.56 1.33-2.78 1.33-2.34 0-3.92-1.67-3.92-4.22Zm4.73-.63c-.05-.84-.5-1.34-1.27-1.34-.75 0-1.18.48-1.32 1.34h2.59Z"/></svg>
+            <span>ResearchGate</span>
+          </a>
+          <a class="about-link" href="#">CV</a>
+          <a class="about-link" href="mailto:buraak.cayir@gmail.com">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 4.25-7.07 4.42a1 1 0 0 1-1.06 0L4.4 8.25A1 1 0 1 1 5.46 6.55L12 10.64l6.54-4.09a1 1 0 1 1 1.06 1.7Z"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+      </aside>
+
+      <article class="content">
+        <div class="intro-box">
+          <p>Thanks for stopping by my corner of the internet.</p>
+          <p>I am a <strong>Ph.D. Student in Psychology at the University of Bologna</strong> and a <strong>Visiting Scholar at New York University</strong>. My work focuses on intergroup relations, prejudice, stereotyping, discrimination, tolerance, dehumanization, and social change.</p>
+          <p>This website is organized around four professional directions: academic research, psychological counseling, educational consulting, and applied behavioral/UX research. Across these areas, I use psychological science and quantitative methods to understand social behavior and translate research into practical insight.</p>
+        </div>
+
+        <section class="section" aria-label="Choose a section">
+          <h2>Start here</h2>
+          <p>Choose the section most relevant to you.</p>
+          <div class="choice-grid">
+            <a class="choice-card academic" href="#academic">
+              <h3>Academic Research</h3>
+              <p>Research interests, methods, publications, working papers, and scholarly projects.</p>
+              <span>View research →</span>
+            </a>
+            <a class="choice-card support" href="#support">
+              <h3>Psychological Counseling</h3>
+              <p>Psychology-informed counseling, psychoeducation, and session information.</p>
+              <span>Learn more →</span>
+            </a>
+            <a class="choice-card education" href="#education">
+              <h3>Educational Services</h3>
+              <p>Guidance for international students applying to degree programs abroad, including program search and application preparation.</p>
+              <span>Explore services →</span>
+            </a>
+            <a class="choice-card ux" href="#ux">
+              <h3>UX & Behavioral Research</h3>
+              <p>A developing applied direction connecting psychology, research methods, and user-centered insight.</p>
+              <span>Explore direction →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="about">
+          <h2>About Me</h2>
+          <p>I am a social psychology researcher with training in psychological research, quantitative methods, counseling, and applied behavioral science. I am currently pursuing a Ph.D. in Psychology at the University of Bologna, .</p>
+          <p>My academic and applied work centers on intergroup relations, prejudice, stereotyping, discrimination, tolerance, dehumanization, solidarity, and social change. I am especially interested in using psychological science to understand real-world social problems and support more inclusive communities, services, and institutions.</p>
+
+          <h3>Education</h3>
+          <ul class="info-list">
+            <li>Ph.D., Social Psychology, University of Bologna, Italy — ongoing</li>
+            <li>Master’s degree, Psychology of Wellbeing and Social Inclusivity, University of Bologna — Sep 2021 to July 2023</li>
+            <li>Bachelor’s degree, Guidance and Psychological Counseling, TED University, Ankara — Sep 2016 to June 2020</li>
+          </ul>
+
+          <h3>Languages</h3>
+          <ul class="info-list">
+            <li>Turkish — Native</li>
+            <li>English — Professional</li>
+            <li>Italian — Intermediate</li>
+          </ul>
+        </section>
+
+        <section class="section" id="academic">
+          <h2>Academic Research</h2>
+          <p>My academic work is grounded in social psychological theory, empirical research, and quantitative analysis. I study intergroup relations, prejudice, stereotyping, discrimination, tolerance, dehumanization, inter-minority contact, and engagement in social change.</p>
+
+          <h3>Research Interests</h3>
+          <div class="tags">
+            <span class="tag">Social Psychology</span>
+            <span class="tag">Intergroup Relations</span>
+            <span class="tag">Prejudice & Discrimination</span>
+            <span class="tag">Tolerance</span>
+            <span class="tag">Dehumanization</span>
+            <span class="tag">Social Change</span>
+            <span class="tag">Quantitative Methods</span>
+            <span class="tag">Field Research</span>
+            <span class="tag">Scientific Writing</span>
+          </div>
+
+          <h3>Methods & Skills</h3>
+          <ul class="info-list">
+            <li>R, SPSS, quantitative analysis, and research dataset management</li>
+            <li>Experimental and field research design</li>
+            <li>Survey design, questionnaire development, measurement, and data interpretation</li>
+            <li>Literature reviews, manuscript drafting, scholarly writing, teaching, and presentations</li>
+            <li>Workshop design and facilitation on DEI, prejudice, stereotyping, and discrimination</li>
+          </ul>
+
+          <h3>Publications, Writing & Presentations</h3>
+          <ul class="pub-list">
+            <li>
+              <span class="pub-type">Publication</span>
+              <span class="pub-title">Fostering solidarity among disadvantaged groups: Exploring the role of inter-minority contact in cross-cultural contexts.</span>
+              <span class="pub-meta">Policardo, G. R., Prati, F., Cayir, B., Van Assche, J., & Rubini, M. (2025). <em>International Review of Social Psychology</em>. <a href="https://doi.org/10.5334/irsp.1096">https://doi.org/10.5334/irsp.1096</a></span>
+            </li>
+            <li>
+              <span class="pub-type">Publication</span>
+              <span class="pub-title">The heaviness of advantaged members’ judgement: The role of meta-dehumanization and relative deprivation on ethnic minority members’ engagement to social change.</span>
+              <span class="pub-meta">Prati, F., Cayir, B., Van Assche, J., & Rubini, M. (2026). <em>Journal of Applied Social Psychology</em>. <a href="https://doi.org/10.1111/jasp.70056">https://doi.org/10.1111/jasp.70056</a></span>
+            </li>
+          </ul>
+
+          <h3>Conference Presentations & Dissemination</h3>
+          <ul class="pub-list">
+            <li>
+              <span class="pub-type">Poster Presentation</span>
+              <span class="pub-title">Tolerance trap: How “goodwill” sedates resistance.</span>
+              <span class="pub-meta">Annual Convention of the Society for Personality and Social Psychology, Chicago, IL, United States, February 26–28, 2026.</span>
+            </li>
+            <li>
+              <span class="pub-type">Summer School</span>
+              <span class="pub-title">EASP Summer School 2025.</span>
+              <span class="pub-meta">European Association of Social Psychology, University of Kent, Canterbury, United Kingdom, July 20–30, 2025.</span>
+            </li>
+            <li>
+              <span class="pub-type">Conference Presentation</span>
+              <span class="pub-title">Bridging faiths: How multicultural experiences influence tolerance towards minority religious practices.</span>
+              <span class="pub-meta">Social Science Perspectives on Individuals, Cultures, and Institutions in the Mediterranean Region, Crete, Greece, April 6–8, 2025.</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" id="support">
+          <h2>Psychological Counseling</h2>
+          <p>I have a background in guidance and psychological counseling, wellbeing and social inclusivity, and supervised counseling experience with adolescents. I offer psychology-informed support and counseling-oriented sessions for individuals seeking greater self-understanding, emotional clarity, and practical strategies for personal, academic, or professional challenges.</p>
+          <p>My approach is informed by my bachelor’s training in Guidance and Psychological Counseling, my master’s training in Psychology of Wellbeing and Social Inclusivity, and my ongoing doctoral work in psychology.</p>
+          <p>Sessions may focus on stress, adjustment, academic and career challenges, decision-making, emotional awareness, personal development, resilience, and psychoeducation. I am also especially interested in supporting immigrants, expats, and international students navigating life abroad, cultural adjustment, belonging, loneliness, identity, uncertainty, and transitions between countries or education systems.</p>
+          <p>I am available for online sessions. To inquire about a session, please reach out via email. <em>(I aim to respond to booking inquiries within 8 hours.)</em></p>
+
+          <h3>Possible Session Themes</h3>
+          <div class="tags">
+            <span class="tag">Stress & Adjustment</span>
+            <span class="tag">Academic Challenges</span>
+            <span class="tag">Career Transitions</span>
+            <span class="tag">Self-Understanding</span>
+            <span class="tag">Psychoeducation</span>
+            <span class="tag">Personal Development</span>
+            <span class="tag">Resilience</span>
+            <span class="tag">Immigrant & Expat Adjustment</span>
+            <span class="tag">International Student Wellbeing</span>
+            <span class="tag">Cultural Transitions</span>
+          </div>
+
+          <h3>Relevant Training</h3>
+          <ul class="info-list">
+            <li>Bachelor’s degree in Guidance and Psychological Counseling, TED University</li>
+            <li>Master’s degree in Psychology of Wellbeing and Social Inclusivity, University of Bologna</li>
+            <li>Supervised counseling experience with adolescents</li>
+            <li>Cognitive Behavior Therapy Practitioner certification, Achology</li>
+            <li>Psychological First Aid, Johns Hopkins University</li>
+            <li>Resilience in Children Exposed to Trauma, Disaster and War, University of Minnesota</li>
+          </ul>
+
+          <div class="note">Please note: These sessions are educational and supportive in nature and are offered within the scope of my training and applicable regulations. They are not a substitute for emergency care, psychiatric treatment, formal diagnosis, or licensed psychotherapy. If you are in crisis or need urgent mental health support, please contact local emergency services or a licensed mental health professional in your area.</div>
+        </section>
+
+        <section class="section" id="education">
+          <h2>Educational Services</h2>
+          <p>I provide educational consulting for international students who are exploring degree programs abroad. Drawing on my experience in international student recruitment, higher education, and cross-cultural academic pathways, I help students make informed decisions about studying internationally.</p>
+          <p>This service is designed for students from around the world, including but not limited to students from Türkiye, who are considering undergraduate, master’s, or doctoral study abroad.</p>
+
+          <h3>How I Can Help</h3>
+          <ul class="info-list">
+            <li><strong>Program exploration:</strong> identifying degree programs, universities, and countries that fit the student’s goals, background, and budget.</li>
+            <li><strong>Application strategy:</strong> building a realistic application list and timeline for international admissions.</li>
+            <li><strong>Statement and CV guidance:</strong> helping students structure personal statements, motivation letters, academic CVs, and application materials.</li>
+            <li><strong>Academic pathway planning:</strong> discussing undergraduate, master’s, and Ph.D. routes, including transitions between education systems.</li>
+            <li><strong>Cross-cultural preparation:</strong> helping students understand expectations, adaptation challenges, and academic life abroad.</li>
+          </ul>
+
+          <h3>Relevant Experience</h3>
+          <ul class="info-list">
+            <li>International Promotion Officer, TED University, Ankara</li>
+            <li>Experience supporting international student recruitment and access to higher education opportunities</li>
+            <li>Academic experience across Türkiye, Italy, Germany, and the United States</li>
+          </ul>
+        </section>
+
+        <section class="section" id="ux">
+          <h2>UX & Behavioral Research</h2>
+          <p>I am developing an applied research direction in UX and behavioral research, building on my doctoral training in social psychology, survey design, quantitative analysis, field research, and human behavior.</p>
+          <p>My interest is in using psychological research skills to understand people’s needs, behaviors, decisions, and experiences in real-world products, services, institutions, and organizations.</p>
+
+          <h3>Transferable Strengths</h3>
+          <ul class="info-list">
+            <li><strong>Survey research:</strong> questionnaire design, measurement, sampling, and interpretation of response patterns.</li>
+            <li><strong>Behavioral insight:</strong> social psychological theory applied to attitudes, group dynamics, decision-making, motivation, and experience.</li>
+            <li><strong>Quantitative analysis:</strong> managing datasets, analyzing behavioral data, and interpreting findings for academic and applied audiences.</li>
+            <li><strong>Research translation:</strong> turning findings into clear reports, recommendations, workshops, and practical next steps.</li>
+          </ul>
+
+          <h3>Areas I Am Building Toward</h3>
+          <div class="tags">
+            <span class="tag">Foundational UX Research</span>
+            <span class="tag">User-Centered Thinking</span>
+            <span class="tag">Survey Design</span>
+            <span class="tag">User Interviews</span>
+            <span class="tag">Usability Testing</span>
+            <span class="tag">Behavioral Insights</span>
+            <span class="tag">Product Research</span>
+            <span class="tag">Applied Psychology</span>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <h2>Contact</h2>
+          <p>For academic collaboration, psychological counseling inquiries, educational consulting, or applied behavioral and UX research opportunities, feel free to reach out.</p>
+          <div class="contact-box">
+            <p><strong>Email:</strong> <a href="mailto:buraak.cayir@gmail.com">buraak.cayir@gmail.com</a></p>
+            <p><strong>Profiles:</strong>
+              <a href="https://www.linkedin.com/in/burak-cayir/" title="LinkedIn" aria-label="LinkedIn">LinkedIn</a> ·
+              <a href="https://orcid.org/0000-0002-4375-465X" title="ORCID" aria-label="ORCID">ORCID</a> ·
+              <a href="https://www.researchgate.net/profile/Burak-Cayir" title="ResearchGate" aria-label="ResearchGate">ResearchGate</a>
+            </p>
+            <p><strong>Booking:</strong> Add your Calendly or booking link</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Burak Cayir · Psychology · Research · Counseling · Educational Consulting · Applied Behavioral Science
+  </footer>
 </body>
 </html>
